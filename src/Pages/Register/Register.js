@@ -1,13 +1,12 @@
-// import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-// import { AuthContext } from "../../context/AuthProvider";
+import { AuthContext } from "../../context/AuthProvider";
 
 const Register = () => {
-  // const [error, setError] = useState("");
-  // const navigate = useNavigate();
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
   // // Context
-  // const { createUserHandler } = useContext(AuthContext);
-  // console.log(createUserHandler);
+  const { createUserHandler } = useContext(AuthContext);
 
   // ------------------------- //
   // Registration from Handler
@@ -23,18 +22,19 @@ const Register = () => {
     const photoURL = registerForm.photoURL.value;
     const email = registerForm.email.value;
     const password = registerForm.password.value;
-    // console.log(displayName, photoURL, email, password);
-    // setError("");
-    // createUserHandler(email, password)
-    //   .then(({ user }) => {
-    //     console.log(user);
 
-    //     navigate(`/blogs/${user?.uid}`);
-    //   })
-    //   .catch((error) => {
-    //     console.error(error);
-    //     setError(error.message);
-    //   });
+    setError("");
+
+    createUserHandler(email, password)
+      .then(({ user }) => {
+        console.log(user);
+
+        // navigate(`/blogs/${user?.uid}`);
+      })
+      .catch((error) => {
+        console.error(error);
+        setError(error.message);
+      });
   };
 
   return (
@@ -65,6 +65,7 @@ const Register = () => {
               name="photoURL"
               placeholder="photo url"
               className="input input-bordered"
+              required
             />
           </div>
           <div className="form-control">
@@ -79,7 +80,7 @@ const Register = () => {
               required
             />
           </div>
-          <div className="form-control">
+          <div className="form-control mb-3">
             <label className="label">
               <span className="label-text">Password</span>
             </label>
@@ -92,7 +93,7 @@ const Register = () => {
             />
           </div>
 
-          {/* {error && <p className="text-red-500">{error}</p>} */}
+          {error && <p className="text-red-500">{error}</p>}
 
           {/* <div className="form-control mt-6">
             {isChecked ? (

@@ -1,12 +1,12 @@
-// import React, { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
-// import { AuthContext } from "../../context/AuthProvider";
+import { AuthContext } from "../../context/AuthProvider";
 
 const Login = () => {
-  // const [error, setError] = useState("");
-  // const { logInHandler } = useContext(AuthContext);
-  // const navigate = useNavigate();
+  const [error, setError] = useState("");
+  const { logInHandler } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   // Login handler
   const loginFormSubmitHandler = (event) => {
@@ -14,16 +14,16 @@ const Login = () => {
     const loginForm = event.target;
     const email = loginForm.email.value;
     const password = loginForm.password.value;
-    console.log(email, password);
-    // setError("");
 
-    // logInHandler(email, password)
-    //   .then(({ user }) => {
-    //     navigate(`/blogs/${user?.uid}`);
-    //   })
-    //   .catch((error) => {
-    //     setError(error.message);
-    //   });
+    setError("");
+
+    logInHandler(email, password)
+      .then(({ user }) => {
+        // navigate(`/blogs/${user?.uid}`);
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
   };
 
   return (
@@ -60,7 +60,7 @@ const Login = () => {
               </Link>
             </label>
           </div>
-          {/* {error && <p className="text-red-500">{error}</p>} */}
+          {error && <p className="text-red-500">{error}</p>}
           <div className="form-control mt-6">
             <button type="submit" className="btn btn-primary">
               Login
