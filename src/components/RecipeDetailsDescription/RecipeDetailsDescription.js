@@ -4,7 +4,7 @@ import RecipeDirection from "./RecipeDirection";
 import RecipeIngredients from "./RecipeIngredients";
 
 const RecipeDetailsDescription = ({ recipe }) => {
-  const { name, ratings, ingredients, directions } = recipe;
+  const { name, ratings, ingredients, directions, description } = recipe;
 
   return (
     <div className="p-16 space-y-6">
@@ -20,6 +20,9 @@ const RecipeDetailsDescription = ({ recipe }) => {
         <p className="text-xl font-bold">
           {ratings} <span className="text-lg font-medium">(Average)</span>
         </p>
+      </div>
+      <div>
+        <p className="text-lg font-medium">{description}</p>
       </div>
       <div>
         <h3 className="text-4xl font-semibold mb-6">Ingredients</h3>

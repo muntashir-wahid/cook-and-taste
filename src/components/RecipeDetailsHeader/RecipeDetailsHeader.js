@@ -10,7 +10,7 @@ const RecipeDetailsHeader = ({ imgUrl }) => {
   };
 
   return (
-    <header className="hero mb-20" style={headerStyle}>
+    <header className="hero mb-6" style={headerStyle}>
       <div className="hero-overlay bg-opacity-60"></div>
       <div className="hero-content text-center text-neutral-content"></div>
     </header>
