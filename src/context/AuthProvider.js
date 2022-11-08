@@ -5,6 +5,7 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
 
@@ -14,6 +15,7 @@ const defaultContext = {
   createUserHandler: () => {},
   logInHandler: () => {},
   logOutHandler: () => {},
+  updateUserProfileHandler: () => {},
 };
 
 // Created context
@@ -49,6 +51,11 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
+  const updateUserProfileHandler = (displayName, photoURL) => {
+    setIsLoding(true);
+    return updateProfile(auth.currentUser, { displayName, photoURL });
+  };
+
   // Track user state change
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -66,6 +73,7 @@ const AuthProvider = ({ children }) => {
     isLoding,
     logInHandler,
     logOutHandler,
+    updateUserProfileHandler,
   };
 
   return (

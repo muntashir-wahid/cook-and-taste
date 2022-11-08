@@ -6,7 +6,8 @@ const Register = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
   // // Context
-  const { createUserHandler } = useContext(AuthContext);
+  const { createUserHandler, updateUserProfileHandler } =
+    useContext(AuthContext);
 
   // ------------------------- //
   // Registration from Handler
@@ -27,9 +28,11 @@ const Register = () => {
 
     createUserHandler(email, password)
       .then(({ user }) => {
-        console.log(user);
-
-        // navigate(`/blogs/${user?.uid}`);
+        updateUserProfileHandler(displayName, photoURL)
+          .then(() => {
+            console.log("Profile updated");
+          })
+          .catch((error) => console.error(error));
       })
       .catch((error) => {
         console.error(error);
