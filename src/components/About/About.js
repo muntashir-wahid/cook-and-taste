@@ -7,7 +7,7 @@ const About = () => {
   return (
     <section className="hero min-h-screen p-16" style={{ minHeight: "35rem" }}>
       <div className="hero-content flex-col lg:flex-row">
-        <img src={imgUrl} className="max-w-md rounded-lg shadow-2xl" alt="" />
+        <img src={imgUrl} className="rounded-lg shadow-2xl" alt="" />
         <div>
           <h1 className="text-5xl font-bold">Box Office News!</h1>
           <p className="py-6">

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const HeroBanner = () => {
   const background = {
@@ -16,7 +17,9 @@ const HeroBanner = () => {
             excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
             a id nisi.
           </p>
-          <button className="btn btn-primary">All Recipes</button>
+          <Link to="/recipes">
+            <button className="btn btn-primary">All Recipes</button>
+          </Link>
         </div>
       </div>
     </section>
