@@ -7,7 +7,7 @@ const Recipes = () => {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/v1/recipes?limit=3")
+    fetch("https://cook-and-taste-server.vercel.app/api/v1/recipes?limit=3")
       .then((res) => res.json())
       .then(({ data }) => {
         setRecipes(data.recipes);

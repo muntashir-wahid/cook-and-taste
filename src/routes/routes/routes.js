@@ -25,12 +25,15 @@ const router = createBrowserRouter([
       {
         path: "recipes",
         element: <AllRecipes />,
-        loader: () => fetch("http://localhost:5000/api/v1/recipes"),
+        loader: () =>
+          fetch("https://cook-and-taste-server.vercel.app/api/v1/recipes"),
       },
       {
         path: "recipes/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/api/v1/recipes/${params.id}`),
+          fetch(
+            `https://cook-and-taste-server.vercel.app/api/v1/recipes/${params.id}`
+          ),
         element: <RecipeDetails />,
       },
       {
