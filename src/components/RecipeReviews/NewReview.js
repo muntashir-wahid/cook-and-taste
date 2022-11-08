@@ -32,7 +32,10 @@ const NewReview = ({ recipeId, onAddedNewReview }) => {
       body: JSON.stringify(userReview),
     })
       .then((res) => res.json())
-      .then((data) => onAddedNewReview(data));
+      .then(({ data }) => {
+        onAddedNewReview(data.recipeReview);
+        reviewForm.reset();
+      });
   };
 
   return (
