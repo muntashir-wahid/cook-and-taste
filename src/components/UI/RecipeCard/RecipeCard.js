@@ -1,6 +1,8 @@
 import React from "react";
 import { FaDollarSign, FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 
 const RecipeCard = ({ recipe }) => {
   const { _id, name, description, picture, ratings, price } = recipe;
@@ -8,7 +10,17 @@ const RecipeCard = ({ recipe }) => {
   return (
     <article className="card card-compact bg-base-100 shadow-xl">
       <figure>
-        <img style={{ minHeight: "16rem" }} src={picture} alt={name} />
+        <PhotoProvider>
+          <PhotoView src={picture}>
+            <img
+              title="Click to view full screen"
+              className="cursor-zoom-in"
+              style={{ minHeight: "16rem" }}
+              src={picture}
+              alt={name}
+            />
+          </PhotoView>
+        </PhotoProvider>
       </figure>
       <div className="card-body">
         <h2 className="card-title">{name}</h2>

@@ -9,7 +9,7 @@ const Main = () => {
       <header>
         <NavBar />
       </header>
-      <main>
+      <main className="max-w-7xl mx-auto p-4">
         <Outlet />
       </main>
       <Footer />
