@@ -1,11 +1,16 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
+import RecipeDetailsHeader from "../../components/RecipeDetailsHeader/RecipeDetailsHeader";
 
 const RecipeDetails = () => {
   const { data } = useLoaderData();
-  console.log(data);
+  const { picture } = data.recipe;
 
-  return <section className="p-16"></section>;
+  return (
+    <section>
+      <RecipeDetailsHeader imgUrl={picture} />
+    </section>
+  );
 };
 
 export default RecipeDetails;
