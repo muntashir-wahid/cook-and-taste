@@ -1,13 +1,38 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../context/AuthProvider";
 
-const NewReview = () => {
+const NewReview = ({ recipeId, onAddedNewReview }) => {
+  const { user } = useContext(AuthContext);
+
   const reviewFormSubmitHandler = (event) => {
     event.preventDefault();
     const reviewForm = event.target;
     const reviewerName = reviewForm.reviewerName.value;
     const review = reviewForm.review.value;
     const ratings = reviewForm.ratings.value;
-    console.log(reviewerName, review, ratings);
+    const reviewTime = new Date().getTime();
+
+    const userReview = {
+      recipeId,
+      ratings,
+      review,
+      reviewTime,
+      reviewer: {
+        name: reviewerName,
+        photoURL: user?.photoURL,
+        email: user?.email,
+      },
+    };
+
+    fetch("http://localhost:5000/api/v1/reviews", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(userReview),
+    })
+      .then((res) => res.json())
+      .then((data) => onAddedNewReview(data));
   };
 
   return (

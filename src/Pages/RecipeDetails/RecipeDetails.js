@@ -6,13 +6,13 @@ import RecipeReviews from "../../components/RecipeReviews/RecipeReviews";
 
 const RecipeDetails = () => {
   const { data } = useLoaderData();
-  const { picture } = data.recipe;
+  const { picture, _id } = data.recipe;
 
   return (
     <section>
       <RecipeDetailsHeader imgUrl={picture} />
       <RecipeDetailsDescription recipe={data.recipe} />
-      <RecipeReviews />
+      <RecipeReviews recipeId={_id} />
     </section>
   );
 };
