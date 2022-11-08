@@ -40,7 +40,7 @@ const NavBar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <Link to="/login" className="btn btn-ghost">
+        <Link to="/login" className="btn btn-outline btn-primary">
           Get Login
         </Link>
       </div>
