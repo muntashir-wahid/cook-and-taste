@@ -9,7 +9,9 @@ const Main = () => {
       <header>
         <NavBar />
       </header>
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
       <Footer />
     </Fragment>
   );

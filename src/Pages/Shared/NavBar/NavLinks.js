@@ -5,7 +5,7 @@ const NavLinks = () => {
   const navLink = [
     { id: 1, content: "Home", link: "/home" },
     { id: 2, content: "Recipes", link: "/recipes" },
-    { id: 3, content: "blogs", link: "/blogs" },
+    { id: 3, content: "Blogs", link: "/blogs" },
   ];
 
   return (
