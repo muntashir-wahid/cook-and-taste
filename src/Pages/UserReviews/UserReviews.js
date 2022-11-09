@@ -9,20 +9,27 @@ const UserReviews = () => {
 
   const { user } = useContext(AuthContext);
   const [userReviews, setUserReviews] = useState([]);
-  const [totalReviews, setTotalReviews] = useState(0);
 
   useEffect(() => {
     fetch(`http://localhost:5000/api/v1/reviews?email=${user?.email}`)
       .then((res) => res.json())
-      .then(({ data, result }) => {
-        setTotalReviews(result);
+      .then(({ data }) => {
         setUserReviews(data.userReviews);
       });
   }, [user?.email]);
 
+  const deletedReviewHandler = (reviewId) => {
+    setUserReviews((preReviews) => {
+      const updatedReviews = preReviews.filter(
+        (review) => review._id !== reviewId
+      );
+      return updatedReviews;
+    });
+  };
+
   return (
     <Fragment>
-      {!totalReviews && (
+      {!userReviews.length && (
         <div className="flex flex-col min-h-screen items-center justify-center px-8 text-center">
           <h3 className="text-5xl font-semibold">You have no Review</h3>
           <p className="text-lg">
@@ -35,11 +42,15 @@ const UserReviews = () => {
       )}
       <div className="min-h-screen my-8 px-6 md:px-12 lg:px-16">
         <h2 className="text-4xl font-semibold text-center mb-12">
-          All reviews ({totalReviews})
+          All reviews ({userReviews.length})
         </h2>
         <div className="flex flex-wrap justify-evenly gap-6">
           {userReviews.map((userReview) => (
-            <UserReview key={userReview._id} reviewData={userReview} />
+            <UserReview
+              onDeleteReview={deletedReviewHandler}
+              key={userReview._id}
+              reviewData={userReview}
+            />
           ))}
         </div>
       </div>

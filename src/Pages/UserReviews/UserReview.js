@@ -1,7 +1,23 @@
 import React from "react";
 
-const UserReview = ({ reviewData }) => {
-  const { recipeName, review, ratings } = reviewData;
+const UserReview = ({ reviewData, onDeleteReview }) => {
+  const { recipeName, review, ratings, _id } = reviewData;
+
+  const deleteReviewHandler = (reviewId) => {
+    fetch(`http://localhost:5000/api/v1/reviews/${reviewId}`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/josn",
+      },
+    })
+      .then((res) => res.json())
+      .then(({ data }) => {
+        const isDeleted = data.result.deletedCount;
+        if (isDeleted) {
+          onDeleteReview(reviewId);
+        }
+      });
+  };
 
   return (
     <article className="card w-96 bg-base-100 shadow-xl">
@@ -16,7 +32,12 @@ const UserReview = ({ reviewData }) => {
         </div>
         <div className="card-actions justify-end">
           <button className="btn btn-primary">Update review</button>
-          <button className="btn btn-ghost">delete review</button>
+          <button
+            onClick={deleteReviewHandler.bind(null, _id)}
+            className="btn btn-ghost"
+          >
+            delete review
+          </button>
         </div>
       </div>
     </article>
