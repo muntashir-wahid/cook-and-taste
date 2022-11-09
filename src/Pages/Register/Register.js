@@ -101,18 +101,6 @@ const Register = () => {
 
           {error && <p className="text-red-500">{error}</p>}
 
-          {/* <div className="form-control mt-6">
-            {isChecked ? (
-              <button type="submit" className="btn btn-primary">
-                Login
-              </button>
-            ) : (
-              <button className="btn" disabled>
-                Login
-              </button>
-            )}
-          </div> */}
-
           <div className="form-control mt-6">
             <button type="submit" className="btn btn-primary">
               Login
