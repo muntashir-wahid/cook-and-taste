@@ -24,7 +24,7 @@ const NewReview = ({ recipeId, onAddedNewReview }) => {
       },
     };
 
-    fetch("http://localhost:5000/api/v1/reviews", {
+    fetch("https://cook-and-taste-server.vercel.app/api/v1/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",

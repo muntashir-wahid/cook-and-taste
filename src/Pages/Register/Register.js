@@ -35,6 +35,7 @@ const Register = () => {
             console.log("Profile updated");
           })
           .catch((error) => console.error(error));
+        navigate("/recipes");
       })
       .catch((error) => {
         console.error(error);

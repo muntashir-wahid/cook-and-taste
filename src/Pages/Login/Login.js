@@ -21,7 +21,7 @@ const Login = () => {
 
     logInHandler(email, password)
       .then(({ user }) => {
-        // navigate(`/blogs/${user?.uid}`);
+        navigate("/recipes");
       })
       .catch((error) => {
         setError(error.message);

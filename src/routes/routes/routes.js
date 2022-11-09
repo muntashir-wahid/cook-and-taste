@@ -9,6 +9,7 @@ import Login from "../../Pages/Login/Login";
 import RecipeDetails from "../../Pages/RecipeDetails/RecipeDetails";
 import Register from "../../Pages/Register/Register";
 import UserReviews from "../../Pages/UserReviews/UserReviews";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -52,11 +53,19 @@ const router = createBrowserRouter([
       },
       {
         path: "add-recipe",
-        element: <AddRecipe />,
+        element: (
+          <PrivateRoute>
+            <AddRecipe />
+          </PrivateRoute>
+        ),
       },
       {
         path: "my-reviews/:uid",
-        element: <UserReviews />,
+        element: (
+          <PrivateRoute>
+            <UserReviews />
+          </PrivateRoute>
+        ),
       },
     ],
   },

@@ -9,7 +9,7 @@ const RecipeReviews = ({ recipeId }) => {
   const [recipeReviews, setRecipeReviews] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/v1/reviews/${recipeId}`)
+    fetch(`https://cook-and-taste-server.vercel.app/api/v1/reviews/${recipeId}`)
       .then((res) => res.json())
       .then(({ data }) => {
         setRecipeReviews(data.recipeReviews);
