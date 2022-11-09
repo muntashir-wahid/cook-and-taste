@@ -13,7 +13,9 @@ const UserReviews = () => {
   const [userReviews, setUserReviews] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/v1/reviews?email=${user?.email}`)
+    fetch(
+      `https://cook-and-taste-server.vercel.app/api/v1/reviews?email=${user?.email}`
+    )
       .then((res) => res.json())
       .then(({ data }) => {
         setUserReviews(data.userReviews);

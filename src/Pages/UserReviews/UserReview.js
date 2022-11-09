@@ -4,12 +4,15 @@ const UserReview = ({ reviewData, onDeleteReview }) => {
   const { recipeName, review, ratings, _id } = reviewData;
 
   const deleteReviewHandler = (reviewId) => {
-    fetch(`http://localhost:5000/api/v1/reviews/${reviewId}`, {
-      method: "DELETE",
-      headers: {
-        "content-type": "application/josn",
-      },
-    })
+    fetch(
+      `https://cook-and-taste-server.vercel.app/api/v1/reviews/${reviewId}`,
+      {
+        method: "DELETE",
+        headers: {
+          "content-type": "application/josn",
+        },
+      }
+    )
       .then((res) => res.json())
       .then(({ data }) => {
         const isDeleted = data.result.deletedCount;
