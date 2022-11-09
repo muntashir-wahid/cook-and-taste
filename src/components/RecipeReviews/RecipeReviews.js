@@ -38,7 +38,7 @@ const RecipeReviews = ({ recipeId }) => {
           <SendUserToLogin />
         )}
       </div>
-      <div className="flex flex-col w-3/4">
+      <div className="flex flex-col w-full md:w-3/5  lg:w-1/2">
         {recipeReviews.map((review) => (
           <Review key={review._id} reviewData={review} />
         ))}

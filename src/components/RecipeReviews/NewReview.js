@@ -58,31 +58,31 @@ const NewReview = ({ recipeId, onAddedNewReview }) => {
         <input
           type="radio"
           name="ratings"
-          className="mask mask-star-2 bg-orange-400"
+          className="mask mask-star-2 bg-amber-400"
           defaultValue="1"
         />
         <input
           type="radio"
           name="ratings"
-          className="mask mask-star-2 bg-orange-400"
+          className="mask mask-star-2 bg-amber-400"
           defaultValue="2"
         />
         <input
           type="radio"
           name="ratings"
-          className="mask mask-star-2 bg-orange-400"
+          className="mask mask-star-2 bg-amber-400"
           defaultValue="3"
         />
         <input
           type="radio"
           name="ratings"
-          className="mask mask-star-2 bg-orange-400"
+          className="mask mask-star-2 bg-amber-400"
           defaultValue="4"
         />
         <input
           type="radio"
           name="ratings"
-          className="mask mask-star-2 bg-orange-400"
+          className="mask mask-star-2 bg-amber-400"
           defaultValue="5"
         />
       </div>

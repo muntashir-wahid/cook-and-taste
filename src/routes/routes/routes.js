@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
+import AddRecipe from "../../Pages/AddRecipe/AddRecipe";
 import AllRecipes from "../../Pages/AllRecipes/AllRecipes";
 import Blogs from "../../Pages/Blogs/Blogs";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
@@ -47,6 +48,14 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: <Register />,
+      },
+      {
+        path: "add-recipe",
+        element: <AddRecipe />,
+      },
+      {
+        path: "my-reviews/:uid",
+        element: <AddRecipe />,
       },
     ],
   },
