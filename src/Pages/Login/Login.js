@@ -2,8 +2,10 @@ import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../context/AuthProvider";
+import useChangeTitle from "../../hooks/useChangeTitle";
 
 const Login = () => {
+  useChangeTitle("Login");
   const [error, setError] = useState("");
   const { logInHandler } = useContext(AuthContext);
   const navigate = useNavigate();

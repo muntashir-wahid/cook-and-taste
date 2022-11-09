@@ -8,6 +8,7 @@ import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
 import RecipeDetails from "../../Pages/RecipeDetails/RecipeDetails";
 import Register from "../../Pages/Register/Register";
+import UserReviews from "../../Pages/UserReviews/UserReviews";
 
 const router = createBrowserRouter([
   {
@@ -55,7 +56,7 @@ const router = createBrowserRouter([
       },
       {
         path: "my-reviews/:uid",
-        element: <AddRecipe />,
+        element: <UserReviews />,
       },
     ],
   },

@@ -2,8 +2,10 @@ import React from "react";
 import { useLoaderData } from "react-router-dom";
 import RecipeCard from "../../components/UI/RecipeCard/RecipeCard";
 import RecipeCardWrapper from "../../components/UI/RecipeCard/RecipeCardWrapper";
+import useChangeTitle from "../../hooks/useChangeTitle";
 
 const AllRecipes = () => {
+  useChangeTitle("All Recipes");
   const { data } = useLoaderData();
 
   return (

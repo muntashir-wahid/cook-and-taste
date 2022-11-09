@@ -3,10 +3,12 @@ import { useLoaderData } from "react-router-dom";
 import RecipeDetailsDescription from "../../components/RecipeDetailsDescription/RecipeDetailsDescription";
 import RecipeDetailsHeader from "../../components/RecipeDetailsHeader/RecipeDetailsHeader";
 import RecipeReviews from "../../components/RecipeReviews/RecipeReviews";
+import useChangeTitle from "../../hooks/useChangeTitle";
 
 const RecipeDetails = () => {
   const { data } = useLoaderData();
-  const { picture, _id } = data.recipe;
+  const { picture, _id, name } = data.recipe;
+  useChangeTitle(name);
 
   return (
     <section>
