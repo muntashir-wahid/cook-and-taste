@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 import useChangeTitle from "../../hooks/useChangeTitle";
 import UserReview from "./UserReview";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const UserReviews = () => {
   useChangeTitle("My Reviews");
@@ -20,6 +22,16 @@ const UserReviews = () => {
 
   const deletedReviewHandler = (reviewId) => {
     setUserReviews((preReviews) => {
+      toast.success("Review deleted successfully!", {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       const updatedReviews = preReviews.filter(
         (review) => review._id !== reviewId
       );
@@ -54,6 +66,7 @@ const UserReviews = () => {
           ))}
         </div>
       </div>
+      <ToastContainer />
     </Fragment>
   );
 };

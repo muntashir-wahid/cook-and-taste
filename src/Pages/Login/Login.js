@@ -7,7 +7,7 @@ import useChangeTitle from "../../hooks/useChangeTitle";
 const Login = () => {
   useChangeTitle("Login");
   const [error, setError] = useState("");
-  const { logInHandler } = useContext(AuthContext);
+  const { logInHandler, logInWithGoogleHandler } = useContext(AuthContext);
   const navigate = useNavigate();
 
   // Login handler
@@ -21,6 +21,17 @@ const Login = () => {
 
     logInHandler(email, password)
       .then(({ user }) => {
+        navigate("/recipes");
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
+
+  const socialLoginHandler = () => {
+    logInWithGoogleHandler()
+      .then(() => {
+        console.log("login successfull");
         navigate("/recipes");
       })
       .catch((error) => {
@@ -72,7 +83,10 @@ const Login = () => {
         <div className="flex flex-col w-full border-opacity-50">
           <div className="divider">Or Login with</div>
           <div className="grid h-20  rounded-box place-items-center">
-            <button className="btn btn-outline btn-primary">
+            <button
+              onClick={socialLoginHandler}
+              className="btn btn-outline btn-primary"
+            >
               <FcGoogle className="mr-2 text-lg" />
               Google
             </button>

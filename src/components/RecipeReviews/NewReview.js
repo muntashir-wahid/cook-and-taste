@@ -49,11 +49,13 @@ const NewReview = ({ recipeId, onAddedNewReview, recipeName }) => {
         name="reviewerName"
         placeholder="Your Name"
         className="input input-bordered w-full "
+        required
       />
       <textarea
         className="textarea textarea-bordered w-full"
         placeholder="Your review"
         name="review"
+        required
       ></textarea>
       <div className="rating">
         <input

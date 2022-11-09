@@ -2,8 +2,10 @@ import { createContext, useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
   getAuth,
+  GoogleAuthProvider,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
   updateProfile,
 } from "firebase/auth";
@@ -16,12 +18,14 @@ const defaultContext = {
   logInHandler: () => {},
   logOutHandler: () => {},
   updateUserProfileHandler: () => {},
+  logInWithGoogleHandler: () => {},
 };
 
 // Created context
 export const AuthContext = createContext(defaultContext);
 
 const auth = getAuth(app);
+const googleProvider = new GoogleAuthProvider();
 
 // ------------------------------------------- //
 // Provider Function which returns AuthContext
@@ -42,6 +46,13 @@ const AuthProvider = ({ children }) => {
   const logInHandler = (email, password) => {
     setIsLoding(true);
     return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  // Login with google
+
+  const logInWithGoogleHandler = () => {
+    setIsLoding(true);
+    return signInWithPopup(auth, googleProvider);
   };
 
   // Logout user
@@ -72,6 +83,7 @@ const AuthProvider = ({ children }) => {
     createUserHandler,
     isLoding,
     logInHandler,
+    logInWithGoogleHandler,
     logOutHandler,
     updateUserProfileHandler,
   };
