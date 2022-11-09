@@ -14,7 +14,7 @@ const RecipeDetails = () => {
     <section>
       <RecipeDetailsHeader imgUrl={picture} />
       <RecipeDetailsDescription recipe={data.recipe} />
-      <RecipeReviews recipeId={_id} />
+      <RecipeReviews recipeId={_id} recipeName={name} />
     </section>
   );
 };

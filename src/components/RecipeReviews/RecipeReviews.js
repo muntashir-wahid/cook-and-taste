@@ -4,7 +4,7 @@ import NewReview from "./NewReview";
 import Review from "./Review";
 import SendUserToLogin from "./SendUserToLogin";
 
-const RecipeReviews = ({ recipeId }) => {
+const RecipeReviews = ({ recipeId, recipeName }) => {
   const { user } = useContext(AuthContext);
   const [recipeReviews, setRecipeReviews] = useState([]);
 
@@ -32,6 +32,7 @@ const RecipeReviews = ({ recipeId }) => {
         {user ? (
           <NewReview
             recipeId={recipeId}
+            recipeName={recipeName}
             onAddedNewReview={newAddedReviewHandler}
           />
         ) : (

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 
-const NewReview = ({ recipeId, onAddedNewReview }) => {
+const NewReview = ({ recipeId, onAddedNewReview, recipeName }) => {
   const { user } = useContext(AuthContext);
 
   const reviewFormSubmitHandler = (event) => {
@@ -14,6 +14,7 @@ const NewReview = ({ recipeId, onAddedNewReview }) => {
 
     const userReview = {
       recipeId,
+      recipeName,
       ratings,
       review,
       reviewTime,
