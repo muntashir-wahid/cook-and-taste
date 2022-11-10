@@ -7,6 +7,7 @@ import useChangeTitle from "../../hooks/useChangeTitle";
 const AllRecipes = () => {
   useChangeTitle("All Recipes");
   const { data } = useLoaderData();
+  console.log(data);
 
   return (
     <section className="p-16">
