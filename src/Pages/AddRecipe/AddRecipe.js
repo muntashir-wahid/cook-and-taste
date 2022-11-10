@@ -12,7 +12,7 @@ const AddRecipe = () => {
     const name = addRecipeForm.name.value;
     const picture = addRecipeForm.picture.value;
     const price = +addRecipeForm.price.value;
-    const ratings = +addRecipeForm.price.value;
+    const ratings = +addRecipeForm.ratings.value;
     const description = addRecipeForm.description.value;
     const ingredients = addRecipeForm.ingredients.value.split("&");
     const directions = addRecipeForm.directions.value.split("&");
