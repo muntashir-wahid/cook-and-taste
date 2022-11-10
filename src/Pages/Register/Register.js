@@ -30,7 +30,20 @@ const Register = () => {
     setError("");
 
     createUserHandler(email, password)
-      .then(({ user }) => {
+      .then(({ user: currUser }) => {
+        const user = { email: currUser.email };
+        fetch("https://cook-and-taste-server.vercel.app/api/v1/auth", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(user),
+        })
+          .then((res) => res.json())
+          .then(({ data }) => {
+            localStorage.setItem("cook-and-taste-token", data.token);
+          });
+
         updateUserProfileHandler(displayName, photoURL)
           .then(() => {
             // console.log("Profile updated");

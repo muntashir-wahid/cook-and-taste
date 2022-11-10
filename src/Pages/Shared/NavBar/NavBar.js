@@ -11,6 +11,7 @@ const NavBar = () => {
     logOutHandler()
       .then(() => {
         navigate("/");
+        localStorage.removeItem("cook-and-taste-token");
       })
       .catch((error) => console.error(error));
   };

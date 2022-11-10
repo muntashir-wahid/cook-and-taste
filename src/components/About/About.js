@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const About = () => {
   const imgUrl =
@@ -12,13 +13,15 @@ const About = () => {
       <div className="hero-content flex-col lg:flex-row">
         <img src={imgUrl} className="rounded-lg shadow-2xl" alt="" />
         <div>
-          <h1 className="text-5xl font-bold">Box Office News!</h1>
+          <h1 className="text-5xl font-bold">Hello I'm Maria Noor</h1>
           <p className="py-6">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
+            I'm a professional chef at the hotel Sheraton Int. Cook and Taste is
+            my own company. Here I provide some delicious recipes. You can try
+            it at home. You also can order food from here.
           </p>
-          <button className="btn btn-primary">Get Started</button>
+          <Link to="/recipes">
+            <button className="btn btn-primary">See all Recipes</button>
+          </Link>
         </div>
       </div>
     </section>

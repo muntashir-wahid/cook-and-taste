@@ -18,7 +18,6 @@ const RecipeReviews = ({ recipeId, recipeName }) => {
 
   const newAddedReviewHandler = (customerReview) => {
     setRecipeReviews((prevReviews) => {
-      console.log(prevReviews);
       const updatedReviews = [customerReview, ...prevReviews];
       return updatedReviews;
     });

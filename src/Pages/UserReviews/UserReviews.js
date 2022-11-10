@@ -1,5 +1,5 @@
 import React, { Fragment, useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 import useChangeTitle from "../../hooks/useChangeTitle";
 import UserReview from "./UserReview";
@@ -10,15 +10,32 @@ import Loader from "../../components/UI/Loader/Loader";
 const UserReviews = () => {
   useChangeTitle("My Reviews");
 
-  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const { user, logOutHandler } = useContext(AuthContext);
   const [userReviews, setUserReviews] = useState([]);
   const [isReviewLoading, setIsReviewLoading] = useState(true);
 
   useEffect(() => {
     fetch(
-      `https://cook-and-taste-server.vercel.app/api/v1/reviews?email=${user?.email}`
+      `https://cook-and-taste-server.vercel.app/api/v1/reviews?email=${user?.email}`,
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem(
+            "cook-and-taste-token"
+          )}`,
+        },
+      }
     )
-      .then((res) => res.json())
+      .then((res) => {
+        if (res.status === 401 || res.status === 403) {
+          logOutHandler().then(() => {
+            navigate("/");
+            localStorage.removeItem("cook-and-taste-token");
+          });
+        }
+
+        return res.json();
+      })
       .then(({ data }) => {
         setUserReviews(data.userReviews);
         setIsReviewLoading(false);

@@ -1,0 +1,19 @@
+[debug] [2022-11-10T07:57:59.605Z] ----------------------------------------------------------------------
+[debug] [2022-11-10T07:57:59.609Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Asma\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-11-10T07:57:59.610Z] CLI Version:   11.15.0
+[debug] [2022-11-10T07:57:59.611Z] Platform:      win32
+[debug] [2022-11-10T07:57:59.611Z] Node Version:  v18.8.0
+[debug] [2022-11-10T07:57:59.639Z] Time:          Thu Nov 10 2022 13:57:59 GMT+0600 (Bangladesh Standard Time)
+[debug] [2022-11-10T07:57:59.640Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-11-10T07:57:59.815Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-11-10T07:57:59.816Z] > authorizing via signed-in user (waid.muntasir420@gmail.com)
+[debug] [2022-11-10T07:57:59.816Z] [iam] checking project cook-and-taste-75f3a for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-11-10T07:57:59.825Z] > refreshing access token with scopes: []
+[debug] [2022-11-10T07:57:59.828Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2022-11-10T07:57:59.828Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-11-10T07:58:00.450Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2022-11-10T07:58:00.450Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-11-10T07:58:00.472Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/cook-and-taste-75f3a:testIamPermissions [none]
+[debug] [2022-11-10T07:58:00.473Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/cook-and-taste-75f3a:testIamPermissions x-goog-quota-user=projects/cook-and-taste-75f3a
+[debug] [2022-11-10T07:58:00.473Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/cook-and-taste-75f3a:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
