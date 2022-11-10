@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const UserReview = ({ reviewData, onDeleteReview }) => {
   const { recipeName, review, ratings, _id } = reviewData;
@@ -8,9 +9,6 @@ const UserReview = ({ reviewData, onDeleteReview }) => {
       `https://cook-and-taste-server.vercel.app/api/v1/reviews/${reviewId}`,
       {
         method: "DELETE",
-        headers: {
-          "content-type": "application/josn",
-        },
       }
     )
       .then((res) => res.json())
@@ -34,7 +32,9 @@ const UserReview = ({ reviewData, onDeleteReview }) => {
           {ratings ? <p>{ratings} Ratings</p> : <p>No Ratings</p>}
         </div>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">Update review</button>
+          <Link to={`/update-review/${_id}`}>
+            <button className="btn btn-primary">Update review</button>
+          </Link>
           <button
             onClick={deleteReviewHandler.bind(null, _id)}
             className="btn btn-ghost"

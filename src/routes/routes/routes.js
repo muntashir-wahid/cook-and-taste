@@ -8,6 +8,7 @@ import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
 import RecipeDetails from "../../Pages/RecipeDetails/RecipeDetails";
 import Register from "../../Pages/Register/Register";
+import UpdateReview from "../../Pages/UpdateReview/UpdateReview";
 import UserReviews from "../../Pages/UserReviews/UserReviews";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
@@ -64,6 +65,16 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <UserReviews />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "update-review/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/api/v1/reviews/${params.id}`),
+        element: (
+          <PrivateRoute>
+            <UpdateReview />
           </PrivateRoute>
         ),
       },
