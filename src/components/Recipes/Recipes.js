@@ -15,7 +15,7 @@ const Recipes = () => {
   }, []);
 
   return (
-    <section className="p-16">
+    <section className="p-6 md:p-10 lg:p-16">
       <h2 className="text-4xl font-semibold text-center mb-8">All Recipes</h2>
       <RecipeCardWrapper>
         {recipes.map((recipe) => (

@@ -7,7 +7,7 @@ const RecipeDetailsDescription = ({ recipe }) => {
   const { name, ratings, ingredients, directions, description } = recipe;
 
   return (
-    <div className="p-16 space-y-6">
+    <div className="p-6 md:p-10 lg:p-16 space-y-6">
       <h2 className="text-6xl font-semibold">{name}</h2>
       <div className="flex gap-2 items-center">
         <div className="text-xl text-amber-400 flex gap-2">

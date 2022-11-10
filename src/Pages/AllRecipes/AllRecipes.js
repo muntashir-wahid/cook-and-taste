@@ -7,10 +7,9 @@ import useChangeTitle from "../../hooks/useChangeTitle";
 const AllRecipes = () => {
   useChangeTitle("All Recipes");
   const { data } = useLoaderData();
-  console.log(data);
 
   return (
-    <section className="p-16">
+    <section className="p-6 md:p-10 lg:p-16">
       <h2 className="text-4xl font-semibold text-center mb-8">
         Weclome to All Recipes page
       </h2>

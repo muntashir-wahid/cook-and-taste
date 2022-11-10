@@ -80,11 +80,6 @@ const Login = () => {
                   className="input input-bordered"
                   required
                 />
-                <label className="label">
-                  <Link className="label-text-alt link link-hover">
-                    Forgot password?
-                  </Link>
-                </label>
               </div>
               {error && <p className="text-red-500">{error}</p>}
               <div className="form-control mt-6">

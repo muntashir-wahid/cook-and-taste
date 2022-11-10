@@ -44,8 +44,6 @@ const UserReviews = () => {
     });
   };
 
-  console.log(userReviews);
-
   return (
     <Fragment>
       {isReviewLoading ? (

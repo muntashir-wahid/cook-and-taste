@@ -25,7 +25,7 @@ const RecipeReviews = ({ recipeId, recipeName }) => {
   };
 
   return (
-    <div className="p-16 space-y-8">
+    <div className="p-6 md:p-10 lg:p-16 space-y-8">
       <h3 className="text-4xl font-semibold">
         Reviews({recipeReviews?.length})
       </h3>
