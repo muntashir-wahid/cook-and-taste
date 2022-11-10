@@ -31,7 +31,6 @@ const Login = () => {
   const socialLoginHandler = () => {
     logInWithGoogleHandler()
       .then(() => {
-        console.log("login successfull");
         navigate("/recipes");
       })
       .catch((error) => {

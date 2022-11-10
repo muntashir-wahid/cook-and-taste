@@ -25,7 +25,7 @@ const AddRecipe = () => {
       directions,
     };
 
-    fetch("http://localhost:5000/api/v1/recipes", {
+    fetch("https://cook-and-taste-server.vercel.app/api/v1/recipes", {
       method: "POST",
       headers: {
         "content-type": "application/json",

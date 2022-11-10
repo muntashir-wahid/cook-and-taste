@@ -22,7 +22,7 @@ const UpdateReview = () => {
       ratings,
     };
 
-    fetch(`http://localhost:5000/api/v1/reviews/${_id}`, {
+    fetch(`https://cook-and-taste-server.vercel.app/api/v1/reviews/${_id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

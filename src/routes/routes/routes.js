@@ -71,7 +71,9 @@ const router = createBrowserRouter([
       {
         path: "update-review/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/api/v1/reviews/${params.id}`),
+          fetch(
+            `https://cook-and-taste-server.vercel.app/api/v1/review/${params.id}`
+          ),
         element: (
           <PrivateRoute>
             <UpdateReview />
