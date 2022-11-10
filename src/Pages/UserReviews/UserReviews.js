@@ -40,7 +40,7 @@ const UserReviews = () => {
         setUserReviews(data.userReviews);
         setIsReviewLoading(false);
       });
-  }, [user?.email]);
+  }, [user?.email, logOutHandler, navigate]);
 
   const deletedReviewHandler = (reviewId) => {
     setUserReviews((preReviews) => {
