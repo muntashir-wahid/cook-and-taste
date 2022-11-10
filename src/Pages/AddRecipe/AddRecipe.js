@@ -1,10 +1,10 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import useChangeTitle from "../../hooks/useChangeTitle";
 
 const AddRecipe = () => {
   useChangeTitle("Add Recipe");
-  const navigate = useNavigate();
 
   const addRecipeFormSubmitHandler = (event) => {
     event.preventDefault();
@@ -36,7 +36,18 @@ const AddRecipe = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        navigate("/");
+        toast.success("A new recipe is added successfully!", {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+
+        addRecipeForm.reset();
       });
   };
 
@@ -136,6 +147,7 @@ const AddRecipe = () => {
           </div>
         </form>
       </div>
+      <ToastContainer />
     </div>
   );
 };
