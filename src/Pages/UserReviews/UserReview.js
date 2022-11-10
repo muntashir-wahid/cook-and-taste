@@ -5,6 +5,12 @@ const UserReview = ({ reviewData, onDeleteReview }) => {
   const { recipeName, review, ratings, _id } = reviewData;
 
   const deleteReviewHandler = (reviewId) => {
+    const confirmation = window.confirm(
+      "Are your sure you want to delete this review?"
+    );
+
+    if (!confirmation) return;
+
     fetch(
       `https://cook-and-taste-server.vercel.app/api/v1/reviews/${reviewId}`,
       {
@@ -31,7 +37,7 @@ const UserReview = ({ reviewData, onDeleteReview }) => {
         <div className="text-lg font-medium">
           {ratings ? <p>{ratings} Ratings</p> : <p>No Ratings</p>}
         </div>
-        <div className="card-actions justify-end">
+        <div className="card-actions justify-center">
           <Link to={`/update-review/${_id}`}>
             <button className="btn btn-primary">Update review</button>
           </Link>

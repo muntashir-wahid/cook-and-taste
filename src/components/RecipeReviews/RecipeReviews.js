@@ -7,7 +7,6 @@ import SendUserToLogin from "./SendUserToLogin";
 const RecipeReviews = ({ recipeId, recipeName }) => {
   const { user } = useContext(AuthContext);
   const [recipeReviews, setRecipeReviews] = useState([]);
-  console.log(recipeId);
 
   useEffect(() => {
     fetch(`https://cook-and-taste-server.vercel.app/api/v1/reviews/${recipeId}`)
@@ -16,8 +15,6 @@ const RecipeReviews = ({ recipeId, recipeName }) => {
         setRecipeReviews(data.recipeReviews);
       });
   }, [recipeId]);
-
-  console.log(recipeReviews);
 
   const newAddedReviewHandler = (customerReview) => {
     setRecipeReviews((prevReviews) => {

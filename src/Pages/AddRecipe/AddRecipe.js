@@ -1,8 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import useChangeTitle from "../../hooks/useChangeTitle";
 
 const AddRecipe = () => {
   useChangeTitle("Add Recipe");
+  const navigate = useNavigate();
 
   const addRecipeFormSubmitHandler = (event) => {
     event.preventDefault();
@@ -33,7 +35,9 @@ const AddRecipe = () => {
       body: JSON.stringify(newRecipe),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        navigate("/");
+      });
   };
 
   return (

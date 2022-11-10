@@ -5,12 +5,14 @@ import useChangeTitle from "../../hooks/useChangeTitle";
 import UserReview from "./UserReview";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Loader from "../../components/UI/Loader/Loader";
 
 const UserReviews = () => {
   useChangeTitle("My Reviews");
 
   const { user } = useContext(AuthContext);
   const [userReviews, setUserReviews] = useState([]);
+  const [isReviewLoading, setIsReviewLoading] = useState(true);
 
   useEffect(() => {
     fetch(
@@ -19,6 +21,7 @@ const UserReviews = () => {
       .then((res) => res.json())
       .then(({ data }) => {
         setUserReviews(data.userReviews);
+        setIsReviewLoading(false);
       });
   }, [user?.email]);
 
@@ -41,9 +44,33 @@ const UserReviews = () => {
     });
   };
 
+  console.log(userReviews);
+
   return (
     <Fragment>
-      {!userReviews.length && (
+      {isReviewLoading ? (
+        <Loader className="min-h-screen" />
+      ) : (
+        <div
+          className={`min-h-screen my-8 px-6 md:px-12 lg:px-16 ${
+            !userReviews.length ? "hidden" : undefined
+          }`}
+        >
+          <h2 className="text-4xl font-semibold text-center mb-12">
+            All reviews ({userReviews.length})
+          </h2>
+          <div className="flex flex-wrap justify-evenly gap-6">
+            {userReviews.map((userReview) => (
+              <UserReview
+                onDeleteReview={deletedReviewHandler}
+                key={userReview._id}
+                reviewData={userReview}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+      {userReviews.length === 0 && !isReviewLoading && (
         <div className="flex flex-col min-h-screen items-center justify-center px-8 text-center">
           <h3 className="text-5xl font-semibold">You have no Review</h3>
           <p className="text-lg">
@@ -54,20 +81,7 @@ const UserReviews = () => {
           </p>
         </div>
       )}
-      <div className="min-h-screen my-8 px-6 md:px-12 lg:px-16">
-        <h2 className="text-4xl font-semibold text-center mb-12">
-          All reviews ({userReviews.length})
-        </h2>
-        <div className="flex flex-wrap justify-evenly gap-6">
-          {userReviews.map((userReview) => (
-            <UserReview
-              onDeleteReview={deletedReviewHandler}
-              key={userReview._id}
-              reviewData={userReview}
-            />
-          ))}
-        </div>
-      </div>
+
       <ToastContainer />
     </Fragment>
   );
