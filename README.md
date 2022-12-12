@@ -4,7 +4,7 @@ Cook and Taste is a single-page web application where you can find some deliciou
 
 ---
 
-## Features of the webpage
+## Features of the website
 
 - **Single-page web app**: Cook and Taste is a single-page web application. So you dont need to fetch a whole html document in order to see someting new or dynamic in this page. It wiil give you the feel of useing moblie application on web.
 
