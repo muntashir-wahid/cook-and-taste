@@ -1,6 +1,6 @@
 # Cook and Taste
 
-Cook and Taste is a single-page web application where you can find some delicious recipes. You can read specific recipe details. A user can see reviews on a recipe. He/she can also add his/her review. But for that he/she neet to login first. User can also remove and update his/her reviews. You can visit the site [here.](https://cook-and-taste-75f3a.web.app/)
+Cook and Taste is a single-page web application where you can find some delicious recipes. You can read specific recipe details. A user can see reviews on a recipe. He/she can also add his/her review. But for that, he/she needs to log in first. Users can also remove and update his/her reviews. User can also remove and update his/her reviews. You can visit the site [here.](https://cook-and-taste-75f3a.web.app/)
 
 ---
 
